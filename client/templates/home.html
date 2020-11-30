@@ -1,0 +1,53 @@
+<!DOCTYPE html>.
+<html>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<body>
+    <div class="jumbotron text-center bg-dark text-white">
+        <h1>Lagger blockchain network</h1>
+        <p>Decentralized messaging app</p> 
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-4  bg-secondary text-white">
+            <form action="/submit_transaction" method="post">
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" class="form-control" placeholder="Enter username" name="author" id="author">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <input type="text" class="form-control" placeholder="Enter message" name="content" id="content">
+                </div>
+                <button type="submit" class="btn btn-primary btn-light">Submit</button>
+            </form>
+
+<!-- 
+            <div class="alert alert-success">
+                <strong>Success!</strong> Indicates a successful or positive action.
+            </div>
+            <div class="alert alert-danger">
+                <strong>Success!</strong> You should <a href="#" class="alert-link">read this message</a>.
+            </div> -->
+        </div>
+
+
+        <div class="col-sm-8  bg-light">
+            {% for msg in msgs %}
+                <div class="card" id="{{msg['hash']}}">
+                    <div class="card-body">
+                        <h4 class="card-title">{{msg['author']}}<small>     {{msg['time']}}</small> </h4>
+                        <p class="card-text">{{msg['content']}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+      </div>
+
+</body>
+</html>
